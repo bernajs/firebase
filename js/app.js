@@ -11,10 +11,8 @@ firebase.initializeApp(config);
 
 var database = firebase.database();
 
-// firebase
-//     .database()
-//     .ref('users/' + 3)
-//     .set({username: 'Hola', email: 'luisg@mobkii.com', profile_picture: 'google.com'});
+// firebase     .database()     .ref('users/' + 3)     .set({username: 'Hola',
+// email: 'luisg@mobkii.com', profile_picture: 'google.com'});
 
 var leadsRef = database.ref('users');
 leadsRef.on('value', function (snapshot) {
@@ -36,6 +34,11 @@ function eliminar(id) {
 function agregar() {
     var name = $('#name').val();
     var correo = $('#correo').val();
+
+    if (!name || !correo) {
+        alert('Ingresa datos válidos');
+        return;
+    }
     firebase
         .database()
         .ref('users')
@@ -44,24 +47,12 @@ function agregar() {
     $('#correo').val('');
 }
 
-// window.fbAsyncInit = function () {
-//     FB.init({appId: '631567633704346', xfbml: true, version: 'v2.6'});
-// };
-
-// (function (d, s, id) {
-//     var js,
-//         fjs = d.getElementsByTagName(s)[0];
-//     if (d.getElementById(id)) {
-//         return;
-//     }
-//     js = d.createElement(s);
-//     js.id = id;
-//     js.src = "https://connect.facebook.net/en_US/sdk.js";
-//     fjs
-//         .parentNode
-//         .insertBefore(js, fjs);
-// }(document, 'script', 'facebook-jssdk'));
-
+// window.fbAsyncInit = function () {     FB.init({appId: '631567633704346',
+// xfbml: true, version: 'v2.6'}); }; (function (d, s, id) {     var js,
+// fjs = d.getElementsByTagName(s)[0];     if (d.getElementById(id)) {
+// return;     }     js = d.createElement(s);     js.id = id;     js.src =
+// "https://connect.facebook.net/en_US/sdk.js";     fjs         .parentNode
+//    .insertBefore(js, fjs); }(document, 'script', 'facebook-jssdk'));
 
 var provider = new firebase
     .auth

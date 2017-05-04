@@ -47,7 +47,7 @@ function agregar() {
     $('#correo').val('');
 }
 
-function loginFB() {
+function loginFb() {
     var provider = new firebase
         .auth
         .FacebookAuthProvider();

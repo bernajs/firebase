@@ -11,10 +11,10 @@ firebase.initializeApp(config);
 
 var database = firebase.database();
 
-firebase
-    .database()
-    .ref('users/' + 3)
-    .set({username: 'Hola', email: 'luisg@mobkii.com', profile_picture: 'google.com'});
+// firebase
+//     .database()
+//     .ref('users/' + 3)
+//     .set({username: 'Hola', email: 'luisg@mobkii.com', profile_picture: 'google.com'});
 
 var leadsRef = database.ref('users');
 leadsRef.on('value', function (snapshot) {
